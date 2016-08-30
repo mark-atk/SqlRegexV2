@@ -21,7 +21,16 @@ namespace SqlRegexV2
             Match match = null;
             do
             {
-                match = match?.NextMatch() ?? _regex.Match(_input);
+                //match = match?.NextMatch() ?? _regex.Match(_input);
+                if (match != null)
+                {
+                    match = match.NextMatch();
+                }
+                if (match == null)
+                {
+                    match = _regex.Match(_input);
+                }
+
                 if (match.Success)
                 {
                     yield return new MatchNode(++num, match.Value);
