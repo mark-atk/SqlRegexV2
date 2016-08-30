@@ -7,7 +7,7 @@ namespace SqlRegexV2
 {
     public static class UserDefinedFunctions
     {
-        public static readonly RegexOptions Options = RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace;
+        public static readonly RegexOptions Options = RegexOptions.Singleline;
 
         [SqlFunction]
         public static SqlBoolean RegexMatch(SqlString input, SqlString pattern)
