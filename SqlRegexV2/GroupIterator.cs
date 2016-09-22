@@ -24,7 +24,17 @@ namespace SqlRegexV2
             do
             {
                 num++;
-                match = match?.NextMatch() ?? _regex.Match(_input);
+
+                //match = match?.NextMatch() ?? _regex.Match(_input);
+                if (match != null)
+                {
+                    match = match.NextMatch();
+                }
+                if (match == null)
+                {
+                    match = _regex.Match(_input);
+                }
+
                 if (match.Success)
                 {
                     try
